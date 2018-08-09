@@ -1,0 +1,19 @@
+{
+  "name": "jafarbot",
+  "version": "1.0.0",
+  "description": "twitch/irc chat bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "true",
+    "start": "npm run build:live",
+    "build:live": "nodemon --exec ts-node -- src/index.ts"
+  },
+  "author": "Mikko Forsman",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
