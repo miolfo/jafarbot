@@ -17,6 +17,9 @@ export default class IrcConnect {
     client.connect(1, function(msg) {
       client.join('#jafarinleuka', function(msg){
         client.say('#jafarinleuka', 'hello world!');
+        client.addListener('message', function (from, to, message) {
+          console.log(from + ' => ' + to + ': ' + message);
+      });
       });
     });
   }
