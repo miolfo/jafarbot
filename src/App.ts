@@ -1,4 +1,5 @@
 import * as express from 'express'
+import IrcConnect from './IrcConnect'
 
 class App {
   public express
@@ -16,6 +17,7 @@ class App {
       })
     })
     router.post('/connect-to-chat', (req, res) => {
+      new IrcConnect().Connect();
       res.json({
         message: 'connecting to IRC'
       })
