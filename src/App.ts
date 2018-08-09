@@ -15,6 +15,11 @@ class App {
         message: 'Hello World with upd'
       })
     })
+    router.post('/connect-to-chat', (req, res) => {
+      res.json({
+        message: 'connecting to IRC'
+      })
+    })
     this.express.use('/', router)
   }
 }

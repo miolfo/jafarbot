@@ -6,14 +6,20 @@
   "scripts": {
     "test": "true",
     "start": "npm run build:live",
-    "build:live": "nodemon --exec ts-node -- src/index.ts"
+    "build:live": "nodemon --exec ts-node -- src/index.ts",
+    "lint": "eslint src --ext ts"
   },
   "author": "Mikko Forsman",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "typescript": "^3.0.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "nodemon": "^1.18.3",
+    "typescript-eslint-parser": "^18.0.0"
   }
 }
