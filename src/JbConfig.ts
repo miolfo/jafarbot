@@ -1,6 +1,12 @@
-import * as configJson from '../jbconfig.json';
+import * as configJson from "../jbconfig.json";
 
 export default class JbConfig {
+
+    private oauthToken: string;
+    private nick: string;
+    private channel: string;
+    private ircServer: string;
+    private configObject: object;
     constructor() {
       this.oauthToken = configJson.twitchOauthToken;
       this.nick = configJson.nickname;
@@ -9,29 +15,23 @@ export default class JbConfig {
       this.configObject = configJson;
     }
 
-    private oauthToken: String;
-    private nick: String;
-    private channel: String;
-    private ircServer: String;
-    private configObject: object;
-
-    public getOauthToken() : String {
+    public getOauthToken(): string {
       return this.oauthToken;
     }
 
-    public getNick() : String {
+    public getNick(): string {
       return this.nick;
     }
 
-    public getChannel() : String {
+    public getChannel(): string {
       return this.channel;
     }
 
-    public getIrcServer() : String {
+    public getIrcServer(): string {
       return this.ircServer;
     }
 
-    public getConfigObject() : object {
+    public getConfigObject(): object {
       return this.configObject;
     }
 }

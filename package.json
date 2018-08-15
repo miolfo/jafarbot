@@ -7,13 +7,15 @@
     "test": "true",
     "start": "npm run build:live",
     "build:live": "nodemon --exec ts-node -- src/index.ts",
-    "lint": "eslint src --ext ts"
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint-fix": "tslint -c tslint.json 'src/**/*.ts' --fix"
   },
   "author": "Mikko Forsman",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
     "irc": "^0.5.2",
+    "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   },
   "devDependencies": {
