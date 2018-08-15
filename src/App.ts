@@ -1,5 +1,6 @@
 import * as express from 'express'
 import IrcConnect from './IrcConnect'
+import JbConfig from './JbConfig';
 
 class App {
   public express
@@ -20,6 +21,12 @@ class App {
       new IrcConnect().Connect();
       res.json({
         message: 'connecting to IRC'
+      })
+    })
+    router.post('/get-config', (req, res) => {
+      let conf = new JbConfig();
+      res.json({
+        message: conf.getConfigObject()
       })
     })
     this.express.use('/', router)

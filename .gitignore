@@ -76,3 +76,4 @@ typings/
 dist/**/*
 
 .oauthtoken
+jbconfig.json
