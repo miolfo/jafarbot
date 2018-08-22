@@ -1,6 +1,7 @@
 import * as express from "express";
 import IrcConnect from "./IrcConnect";
 import JbConfig from "./JbConfig";
+import DiscordModule from "./modules/DiscordModule";
 
 class App {
   public express;
@@ -18,7 +19,9 @@ class App {
       });
     });
     router.post("/connect-to-chat", (req, res) => {
-      new IrcConnect().Connect();
+      const modules = [];
+      modules.push(new DiscordModule());
+      new IrcConnect(modules).Connect();
       res.json({
         message: "connecting to IRC",
       });
