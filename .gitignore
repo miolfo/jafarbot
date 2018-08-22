@@ -77,3 +77,5 @@ dist/**/*
 
 .oauthtoken
 jbconfig.json
+
+src/modules/DiscordModuleConf.json
