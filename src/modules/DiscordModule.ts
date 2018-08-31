@@ -1,6 +1,6 @@
+import * as discorConfig from "./configs/DiscordModuleConf.json";
 import IBaseModule from "./IBaseModule";
 import IMessage from "./IMessage";
-import * as discorConfig from "./DiscordModuleConf.json";
 
 export default class DiscordModule implements IBaseModule {
 

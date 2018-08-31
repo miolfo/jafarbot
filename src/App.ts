@@ -9,6 +9,7 @@ class App {
   constructor() {
     this.express = express();
     this.mountRoutes();
+    this.initIrcConnection();
   }
 
   private mountRoutes(): void {
@@ -19,9 +20,7 @@ class App {
       });
     });
     router.post("/connect-to-chat", (req, res) => {
-      const modules = [];
-      modules.push(new DiscordModule());
-      new IrcConnect(modules).Connect();
+
       res.json({
         message: "connecting to IRC",
       });
@@ -33,6 +32,12 @@ class App {
       });
     });
     this.express.use("/", router);
+  }
+
+  private initIrcConnection() {
+    const modules = [];
+    modules.push(new DiscordModule());
+    new IrcConnect(modules).Connect();
   }
 }
 
