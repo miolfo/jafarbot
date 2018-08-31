@@ -2,6 +2,7 @@ import * as express from "express";
 import IrcConnect from "./IrcConnect";
 import JbConfig from "./JbConfig";
 import DiscordModule from "./modules/DiscordModule";
+import HelpModule from "./modules/HelpModule";
 
 class App {
   public express;
@@ -19,12 +20,6 @@ class App {
         message: "Hello World with upd",
       });
     });
-    router.post("/connect-to-chat", (req, res) => {
-
-      res.json({
-        message: "connecting to IRC",
-      });
-    });
     router.post("/get-config", (req, res) => {
       const conf = new JbConfig();
       res.json({
@@ -37,7 +32,11 @@ class App {
   private initIrcConnection() {
     const modules = [];
     modules.push(new DiscordModule());
-    new IrcConnect(modules).Connect();
+    const irc = new IrcConnect(modules);
+    irc.Connect();
+
+    const helpModule = new HelpModule();
+    helpModule.Initialize(modules, irc.ircClient);
   }
 }
 

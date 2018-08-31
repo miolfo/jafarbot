@@ -5,6 +5,7 @@ import IBaseModule from "./modules/IBaseModule";
 
 export default class IrcConnect {
 
+  public ircClient: irc.Client;
   private modules: IBaseModule[];
 
   constructor(modules: IBaseModule[]) {
@@ -21,6 +22,7 @@ export default class IrcConnect {
       debug: true,
       password: config.getOauthToken(),
     });
+    this.ircClient = client;
 
     client.addListener("error", (message) => {
       console.log("error: ", message);
