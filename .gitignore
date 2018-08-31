@@ -79,3 +79,5 @@ dist/**/*
 jbconfig.json
 
 src/modules/configs/*.json
+
+src/twitch/configs/*.json
