@@ -1,0 +1,4 @@
+{
+  "timedMessage": "I'm online! Type !help to see available commands",
+  "timedIntervalMs": 300000
+}

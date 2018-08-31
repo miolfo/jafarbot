@@ -2,13 +2,15 @@ import JbConfig from "../JbConfig";
 import IBaseModule from "./IBaseModule";
 import IMessage from "./IMessage";
 
+import * as timedMessageConfig from "./configs/TimedMessageModuleConf.json";
+
 export default class TimedMessageModule implements IBaseModule {
   public Initialize(ircClient: any) {
     const config = new JbConfig();
-    const timedMessage = "timed message!";
+    const timedMessage = timedMessageConfig.timedMessage;
     setTimeout(() => {
       ircClient.say("#" + config.getChannel(), timedMessage);
-    }, 60 * 5 * 1000);
+    }, timedMessageConfig.timedIntervalMs);
   }
 
   public HandleMessage(message: IMessage): string {
