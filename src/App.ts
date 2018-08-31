@@ -3,6 +3,7 @@ import IrcConnect from "./IrcConnect";
 import JbConfig from "./JbConfig";
 import DiscordModule from "./modules/DiscordModule";
 import HelpModule from "./modules/HelpModule";
+import TimedMessageModule from "./modules/TimedMessageModule";
 
 class App {
   public express;
@@ -32,6 +33,7 @@ class App {
   private initIrcConnection() {
     const modules = [];
     modules.push(new DiscordModule());
+    modules.push(new TimedMessageModule());
     const irc = new IrcConnect(modules);
     irc.Connect();
 

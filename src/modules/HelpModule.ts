@@ -7,7 +7,6 @@ export default class HelpModule {
     const config = new JbConfig();
     let msg: string = "";
     modules.forEach((module) => {
-      console.log(module);
       if (module.GetHelpMessage) {
         msg += module.GetHelpMessage() + "\n";
       }

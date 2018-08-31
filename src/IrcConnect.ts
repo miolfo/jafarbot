@@ -9,9 +9,6 @@ export default class IrcConnect {
   private modules: IBaseModule[];
 
   constructor(modules: IBaseModule[]) {
-    modules.forEach((module) => {
-      module.Initialize();
-    });
     this.modules = modules;
   }
 
@@ -31,7 +28,11 @@ export default class IrcConnect {
     client.connect(1, (msg) => {
       client.send("CAP REQ", "twitch.tv/membership");
       client.join("#" + config.getChannel(), (_) => {
-        // client.say("#" + config.getChannel(), "hello world!");
+
+        this.modules.forEach((module) => {
+          module.Initialize(this.ircClient);
+        });
+
         client.addListener("message", (from, to, message) => {
           console.log(from + " => " + to + ": " + message);
           const iMessage = {
