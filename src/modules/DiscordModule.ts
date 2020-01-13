@@ -10,6 +10,10 @@ export default class DiscordModule implements IBaseModule {
     this.discordUrl = discorConfig.joinDiscordUrl;
   }
 
+  public GetName() {
+    return "DiscordModule";
+  }
+
   public GetHelpMessage(): string {
     return "!discord returns the discord channel join link";
   }

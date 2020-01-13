@@ -13,6 +13,10 @@ export default class TimedMessageModule implements IBaseModule {
     }, timedMessageConfig.timedIntervalMs);
   }
 
+  public GetName() {
+    return "TimedMessageModule";
+  }
+
   public HandleMessage(message: IMessage): string {
     return "";
   }

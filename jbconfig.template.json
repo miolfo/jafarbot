@@ -2,5 +2,8 @@
     "twitchOauthToken": "sampleOauthToken",
     "ircServer": "sample.irc.server",
     "nickname": "sampleNickName",
-    "channel": "samplechannel"
+    "channel": "samplechannel",
+    "disabledModules": [
+      "DiscordModule"
+    ]
   }

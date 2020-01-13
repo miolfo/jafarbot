@@ -6,13 +6,16 @@ export default class JbConfig {
     private nick: string;
     private channel: string;
     private ircServer: string;
+    private disabledModules: string[];
     private configObject: object;
+
     constructor() {
       this.oauthToken = configJson.twitchOauthToken;
       this.nick = configJson.nickname;
       this.ircServer = configJson.ircServer;
       this.channel = configJson.channel;
       this.configObject = configJson;
+      this.disabledModules = configJson.disabledModules;
     }
 
     public getOauthToken(): string {
@@ -33,5 +36,9 @@ export default class JbConfig {
 
     public getConfigObject(): object {
       return this.configObject;
+    }
+
+    public getDisabledModules(): string[] {
+      return this.disabledModules;
     }
 }
