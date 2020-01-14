@@ -3,6 +3,7 @@ import * as configJson from "../jbconfig.json";
 export default class JbConfig {
 
     private oauthToken: string;
+    private twitchClientId: string;
     private nick: string;
     private channel: string;
     private ircServer: string;
@@ -11,6 +12,7 @@ export default class JbConfig {
 
     constructor() {
       this.oauthToken = configJson.twitchOauthToken;
+      this.twitchClientId = configJson.twitchClientId;
       this.nick = configJson.nickname;
       this.ircServer = configJson.ircServer;
       this.channel = configJson.channel;
@@ -20,6 +22,10 @@ export default class JbConfig {
 
     public getOauthToken(): string {
       return this.oauthToken;
+    }
+
+    public getTwitchClientId(): string {
+      return this.twitchClientId;
     }
 
     public getNick(): string {

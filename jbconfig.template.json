@@ -1,5 +1,6 @@
 {
     "twitchOauthToken": "sampleOauthToken",
+    "twitchClientId": "sampleclientid",
     "ircServer": "sample.irc.server",
     "nickname": "sampleNickName",
     "channel": "samplechannel",

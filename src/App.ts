@@ -5,6 +5,7 @@ import DiscordModule from "./modules/DiscordModule";
 import HelpModule from "./modules/HelpModule";
 import IBaseModule from "./modules/IBaseModule";
 import TimedMessageModule from "./modules/TimedMessageModule";
+import TwitchApi from "./twitch/TwitchApi";
 
 class App {
   public express;
@@ -19,7 +20,9 @@ class App {
 
   private mountRoutes(): void {
     const router = express.Router();
+    const apiTest = new TwitchApi();
     router.get("/", (req, res) => {
+      apiTest.getStreamStatus();
       res.json({
         message: "Hello World with upd",
       });
