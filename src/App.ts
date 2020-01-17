@@ -6,6 +6,7 @@ import HelpModule from "./modules/HelpModule";
 import IBaseModule from "./modules/IBaseModule";
 import TimedMessageModule from "./modules/TimedMessageModule";
 import TwitchApi from "./twitch/TwitchApi";
+import StreamInfoModule from "./modules/StreamInfoModule";
 
 class App {
   public express;
@@ -22,7 +23,7 @@ class App {
     const router = express.Router();
     const apiTest = new TwitchApi();
     router.get("/", (req, res) => {
-      apiTest.getStreamStatus();
+      apiTest.getStreamStatus().then((info) => console.log(info.toString()));
       res.json({
         message: "Hello World with upd",
       });
@@ -41,6 +42,7 @@ class App {
 
     this.addIfNotBlacklisted(modules, new DiscordModule());
     this.addIfNotBlacklisted(modules, new TimedMessageModule());
+    this.addIfNotBlacklisted(modules, new StreamInfoModule());
     const irc = new IrcConnect(modules);
     irc.Connect();
 

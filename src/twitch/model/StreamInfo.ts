@@ -19,4 +19,12 @@ export default class StreamInfo {
       this.online = false;
     }
   }
+
+  public toString(): string {
+    if (this.online) {
+      return "Currently online for " + this.viewerCount + " viewers for " + this.onlineTime;
+    } else {
+      return "Stream offline :(";
+    }
+  }
 }

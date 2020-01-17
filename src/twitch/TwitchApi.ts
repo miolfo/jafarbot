@@ -11,7 +11,6 @@ export default class TwitchApi {
   constructor() {
     this.conf = new JbConfig();
     this.clientId = this.conf.getTwitchClientId();
-    console.log("initializing twitch api");
   }
 
   public getStreamStatus() {
@@ -26,7 +25,6 @@ export default class TwitchApi {
     });
     const json = await result.json();
     const info = new StreamInfo(json);
-    console.log(info);
     return info;
   }
 }
