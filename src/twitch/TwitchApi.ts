@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import JbConfig from "../JbConfig";
+import StreamInfo from "./model/StreamInfo";
 
 export default class TwitchApi {
 
@@ -17,14 +18,15 @@ export default class TwitchApi {
     return this.getStreamInfo();
   }
 
-  private async getStreamInfo() {
-    console.log("async");
+  private async getStreamInfo(): Promise<StreamInfo> {
     const result = await fetch(this.streamsBaseUrl + this.conf.getChannel(), {
       headers: {
         "Client-ID": this.conf.getTwitchClientId(),
       },
     });
     const json = await result.json();
-    console.log(json);
+    const info = new StreamInfo(json);
+    console.log(info);
+    return info;
   }
 }
