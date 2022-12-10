@@ -14,7 +14,7 @@
   "author": "Mikko Forsman",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "irc": "^0.5.2",
     "node-fetch": "^2.6.0",
     "ts-node": "^8.6.2",
